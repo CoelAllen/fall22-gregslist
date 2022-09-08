@@ -23,7 +23,7 @@
           loading="lazy">
         <span class="ms-2">Gregslist</span>
       </a>
-      <div class="d-flex justify-content-between w-100 pe-3">
+      <div class="d-flex justify-content-between w-100   pe-3">
         <div class="nav-links d-flex gap-3 ms-3">
           <!-- TODO future Problem learn to use SPA links -->
           <div>
@@ -33,12 +33,15 @@
             <h6 class="mb-0 selectable p-2 rounded" onclick="app.jobsController.showJobs()">Jobs</h6>
           </div>
           <div>
-            <h6 class="mb-0 selectable p-2 rounded">Houses</h6>
+            <h6 class="mb-0 selectable p-2 rounded" onclick="app.housesController.showHouses()">Houses</h6>
           </div>
         </div>
         <div>
+          <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#houses">🏠Add House</button>
+          <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#jobs">🖇Add Job</button>
           <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#banana">🚗 Add Car</button>
         </div>
+        
       </div>
     </nav>
   </header>
@@ -53,7 +56,7 @@
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="banana" aria-labelledby="bananaLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="bananaLabel">Offcanvas</h5>
+      <h5 class="offcanvas-title" id="bananaLabel">Place Car Ad</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -100,7 +103,94 @@
       <!-- <button onclick="app.carsController.test()">This is only a Test!!!</button> -->
     </div>
   </div>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="jobs" aria-labelledby="jobsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="jobsLabel">Place Job Ad</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- TODO build forms YIKES put them here DYNAMICALLY YIKES !!!!! -->
+      <form onsubmit="app.jobsController.addJob()">
 
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="company" required>
+          <label for="company">Company</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="jobTitle" required>
+          <label for="jobTitle">Title</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="hours" required min="1" max="168">
+          <label for="hours">Hours/Week</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="rate" required min="0">
+          <label for="rate">Annual Salary</label>
+        </div>
+
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Describe your Listing" name="description"></textarea>
+          <label for="description">Description</label>
+        </div>
+
+        <div class="d-flex my-4 gap-5 align-items-center">
+          <button class="btn" type="reset">Cancel</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+
+
+      </form>
+      <!-- <button onclick="app.carsController.test()">This is only a Test!!!</button> -->
+    </div>
+  </div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="houses" aria-labelledby="housesLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="housesLabel">Place House Ad</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- TODO build forms YIKES put them here DYNAMICALLY YIKES !!!!! -->
+      <form onsubmit="app.housesController.addHouse()">
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="bedrooms" required>
+          <label for="bedrooms">Bedrooms</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="bathrooms" required>
+          <label for="bathrooms">Bathrooms</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="number" class="form-control" name="levels" required min="1" max="168">
+          <label for="levels">Levels</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="url" class="form-control" name="imgUrl">
+          <label for="imgUrl">Image Url <i>(We are too lazy for uploads)</i></label>
+        </div>
+
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Describe your Listing" name="description"></textarea>
+          <label for="description">Description</label>
+        </div>
+
+        <div class="d-flex my-4 gap-5 align-items-center">
+          <button class="btn" type="reset">Cancel</button>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+
+
+      </form>
+      <!-- <button onclick="app.carsController.test()">This is only a Test!!!</button> -->
+    </div>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>

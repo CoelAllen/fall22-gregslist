@@ -52,7 +52,7 @@ export class CarsController {
       form.reset()
 
     } catch (error) {
-      console.error('addCar', error)
+      console.error();
     }
   }
 
